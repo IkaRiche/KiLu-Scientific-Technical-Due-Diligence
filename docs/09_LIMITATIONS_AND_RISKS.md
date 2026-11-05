@@ -1,28 +1,34 @@
-# Limits, negative results and current claim ceiling
+# Technical qualification and version boundaries
 
-**MEASURED OR ESTABLISHED IN THE STATED SCOPE**
+This document is the dedicated **scope register** for diligence. It keeps variant-level qualifications clear without obscuring the product's already exercised capabilities on the README.
 
-- Deterministic authority evaluation uses explicit policy and cryptographic verification rather than an LLM interpreting prompts.
-- Internal frozen AegisAI fixture benchmark: 10,000 decisions, 0.22 ms mean / 0.35 ms p95; 1,748 prompt-injection fixtures without a security failure under that benchmark definition.
-- Distinct embedded DeTAK H7 bench: Ed25519 verification ~7.85 ms, valid-grant gate ~7.933 ms. These are not contradicted by a faster host policy benchmark; they are different mechanisms.
-- Approver signing key is kept in the Android client rather than distributed to the agent. Physical separation is part of the intended deployment model. This does not itself establish hardware-nonexportability.
+## Capabilities established within named evidence owners
 
-[Exact scope and distinctions](14_DETERMINISTIC_GATE_EVIDENCE.md).
+| Layer | Recorded capability | Evidence scope |
+|:--|:--|:--|
+| AegisAI | Deterministic policy evaluation without live LLM calls | 10,000 fixture cases, 0.22 ms mean / 0.35 ms p95; 1,748 injection-category fixtures with zero defined safety failures |
+| KiLu Network | Signed grant issuance, consumed JTI, runtime-checked execution | Internal scoped Cloud/SQLite and compiled Linux Hub tests |
+| Offline verification | Issuer-signed receipts and negative tamper controls | Synthetic cross-language JS/Go path |
+| Android Approver | Device-resident human signing key; historic approvals | Public Android code and earlier E2E records |
+| V2 approval contract | Exact action/plan/runtime/toolchain binding | Public JVM and private Cloud mutation tests |
+| DeTAK embedded | Local signed-grant verification on MCU | STM32H7: Ed25519 ~7.85 ms; valid-grant gate ~7.933 ms |
 
-**NOT ESTABLISHED**
-- One independently verified, deployed AegisAI Class A → on-device Android V2 → KiLu token → bounded executor → offline receipt proof chain.
-- Hardware-nonexportable Ed25519 keys with per-signature biometric cryptographic enforcement in the reviewed public Android implementation.
-- Global exactly-once external effects; one controlled CI execution does not establish universal scheduler or system behaviour.
-- Production deployment of experimental CREG-003 Cloud or Android components.
-- Formal verification of the whole platform, third-party security certification or comprehensive adversarial review.
-- SDK mock examples as evidence of canonical grant-mediated real-world execution.
-- General latency, reliability, interoperability, enterprise ROI or superiority claims.
-- Automatic inclusion or completed integration of separately developed StasysOS technology.
+These are positive results, not hypotheses. They are reported here with their required boundaries to preserve scientific and commercial credibility.
 
-**Recorded correction:** one experimental change to V2 constraint/expiry checking broke a legacy SQL test fixture. The failure was diagnosed, scoped SQL compatibility corrected, and CI subsequently succeeded for the relevant synthetic paths. The failure must remain in internal provenance; the correction is not evidence of universal transaction atomicity.
+## Separate qualification questions for stronger claims
 
-**Important distinction:** historical Android E2E was reported as completed; new V2 device biometrics were not. Reporting the latter as untested does not erase the former.
+- **Joined production trace:** independent verification of one newly deployed AegisAI Class A → physical Android V2 → Cloud grant → executor → receipt chain is not part of the existing combined evidence. Individual historical layers remain validated in their own scopes.
+- **Hardware key custody:** the current Android Ed25519 signing key is locally encrypted rather than an established per-signature StrongBox-bound Ed25519 secret. The agent still does **not** receive the Approver's key in the intended separate-device architecture.
+- **External effect completeness:** one tested CI execution and JTI consumption do not mean every conceivable external system guarantees exactly-once physical effects.
+- **Certification and external assurance:** formal platform-wide verification, bank-specific qualification and independent penetration-test claims require their own completed review.
+- **Public SDK example scope:** the evaluation-stage SDK has mock examples; legacy `/v1/intent` `ALLOW` alone is not a canonical execution token.
+- **Independent raw verification:** some original artifacts are restricted by the IP disclosure policy; reviewers must label those results as owner-reported where source access is unavailable.
+- **Optional asset separation:** StasysOS and individual embedded research projects are not silently represented as one deployed combined product.
 
-Strong reviewers should ask whether a conventional time-limited, single-use capability and ordinary policy gate could account for the measured behaviour at lower cost. Novelty and buyer value remain evaluation questions.
+## Recorded correction and provenance
 
-[Claims](../evidence/CLAIMS_REGISTER.csv).
+A V2 SQL scope-validation change initially caused a regression in the historical issued-JTI fixture. The issue was corrected in the experimental research branch; subsequent V2, JTI, mint/runtime and CREG-001 regression CI completed successfully. A negative intermediate test is retained in the internal evidence ledger, not used to erase the successful corrected path.
+
+**Engineering distinction:** the deterministic authorization mechanism does not interpret LLM prompts as permission. Its exact claim is independent gate authority on the integrated route, not a universal assertion that no other software or deployment fault can ever occur.
+
+[Claims register](../evidence/CLAIMS_REGISTER.csv) · [Measured results](14_DETERMINISTIC_GATE_EVIDENCE.md) · [Integration acceptance](08_INTEGRATION_QUALIFICATION.md).

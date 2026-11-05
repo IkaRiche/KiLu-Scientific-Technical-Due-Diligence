@@ -1,31 +1,39 @@
-# Frequently asked questions
+# KiLu — frequently asked questions
 
-### Is KiLu an AI agent framework?
+### Why doesn't KiLu just use an LLM-based safety prompt?
 
-No. The execution-authority thesis is to decouple proposed actions from authorisation and make actual side effects require a scoped grant in the integrated path.
+Because **permission to execute is not a language-model decision**. KiLu's deterministic authority and signature checks are independent of a planner's generated text. A model may suggest an action; it cannot forge grant authority by persuasive instructions.
 
-### Can I use legacy `/v1/intent` `ALLOW` to execute a real tool?
+### What evidence exists for its performance?
 
-No. The [public SDK](https://github.com/IkaRiche/kilu-sdk) explicitly warns that an intent decision alone is not a canonical executor-bound grant.
+AegisAI's frozen no-LLM 10,000-case governance benchmark measured **0.22 ms mean / 0.35 ms p95**. Separate physical STM32H7 DeTAK experiments reported **~7.85 ms Ed25519** verification and **~7.933 ms** for a valid-grant gate. The numbers measure different paths; neither is a full settlement SLA.
 
-### Is everything open source?
+### Doesn't prompt injection defeat an autonomous agent?
 
-No. This repository is **documentation-only and all-rights-reserved**. Some client/SDK material is already publicly available under its own terms; the core proprietary source and primary evidence remain closed.
+It may manipulate an untrusted agent's intent, but the KiLu-controlled executor does not treat that intent as proof of authorization. The gate checks the trusted grant and bindings instead. This is the purpose of independent execution authority.
 
-### Was Android biometric approval already tested?
+### Where are human approval keys?
 
-Earlier physical Android approval and execution milestones were reported. The **new exact-action V2 ceremony** has public JVM and private Cloud tests but no joined on-device V2 proof. These are distinct statements.
+On a **separate Android Approver**, not given to the remote agent. The public Android client implements local Ed25519 key generation and encrypted app storage. The current public key custody is not a claim of hardware-nonexportable StrongBox Ed25519.
 
-### Can an external reviewer independently prove the entire AegisAI–KiLu chain from this repo?
+### Was the Android approval actually tested?
 
-No. The complete primary chain is not publicly available and its joined experimental proof is not yet established.
+Yes — previous device approval and execution milestones were exercised in the historic R1/E2 path. The newer exact-action V2 signature format has independent Android JVM and Cloud/SQLite tests; a complete physical V2 ceremony is a distinct later qualification.
 
-### How can I evaluate buyer relevance?
+### Can the receipt be verified without the online issuer?
 
-Use the [qualification design](08_INTEGRATION_QUALIFICATION.md) and choose a single controlled workflow with an explicit negative-control battery.
+An independent Go Offline Verifier was exercised against signed receipts in the scoped Cloud/Hub CI path. The verifier establishes covered cryptographic linkage; it does not observe every outside physical consequence.
 
-### What does a green Actions badge mean?
+### Does the SDK quickstart prove end-to-end granted execution?
 
-Only that this repository's **documentation-integrity** workflow passed, not that a security property or closed-source system was formally validated.
+No. The current public [SDK](https://github.com/IkaRiche/kilu-sdk) is an evaluation-stage interface whose examples use mock authorities. Canonical grant-mediated tests are maintained separately.
 
-[Start here](00_START_HERE.md).
+### Is KiLu an Android app, or a technology that can be integrated elsewhere?
+
+It is a **technology architecture and authority protocol** with Android, Linux, Cloud, SDK and embedded verification components. The buyer can evaluate one selected integration without replacing its AI model.
+
+### Is KiLu open source?
+
+The public dossier is all-rights-reserved. Public Android and SDK components retain their own terms. Core proprietary source, original raw evidence and undisclosed inventions are not offered for download here.
+
+[Technology overview](01_EXECUTIVE_OVERVIEW.md) · [Engineering results](04_EXECUTION_EVIDENCE.md) · [Technical scope](09_LIMITATIONS_AND_RISKS.md).

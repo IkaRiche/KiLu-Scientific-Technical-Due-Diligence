@@ -1,24 +1,38 @@
-# Proposed integration qualification
+# Integrate KiLu without replacing your agent stack
 
-This is a **future experimental design**, not a claim about an agreed pilot.
+**KiLu's value is the external enforcement boundary.** Existing agent models, planners and workflow engines can continue to propose actions. An integration adds authority checks to the selected side-effecting executor.
 
-**Candidate use case:** one agent-managed enterprise tool or infrastructure action with a controlled sandbox effect. The buyer chooses a narrow permitted operation, denial conditions, constraints and acceptable operator overhead.
+## Three commercial integration profiles
 
-### Minimum evaluation contract
+| Profile | Buyer environment | KiLu capability under evaluation | Existing evidence |
+|:--|:--|:--|:--|
+| **Agent infrastructure** | Tool-calling systems, browser workers, API/mutation executors | Signed action-bound grants; runtime-bound JTI; verifiable receipts | Cloud/compiled Linux Hub/Go synthetic CI |
+| **Enterprise automation** | Privileged operations requiring human oversight | Independent Android approval key, bounded permissions, auditable execution | Historical R1/E2/E3.2 and CREG-003 crypto tests |
+| **Edge / embedded** | Resource-constrained local execution gateways | Offline local Ed25519 grant checking without LLM policy inference | STM32H7 DeTAK hardware gate, ~7.933 ms valid-grant path |
 
-1. Capture the exact proposed action and policy context.
-2. Deny unapproved, changed, expired, wrong-runtime or replayed action **before** effect.
-3. When approval is required, record what the approver actually reviewed and the precise cryptographic commitment.
-4. Make the executor verify the issued token on the operational code path.
-5. Produce a receipt that a separately pinned verifier accepts, and rejects if any covered field changes.
-6. Keep target system safety, identities, external side effects and access credentials within the buyer-approved sandbox.
+**Agentic payments** is a possible vertical variant: an AI-initiated payment is admitted only by an independently authorized transaction path. It requires a regulated partner's approved sandbox and sector-specific integration; banking production qualification has not been asserted.
 
-### Primary and competing explanations
+## First integration: preserve an existing workflow
 
-**H1:** the grant-mediated path constrains the selected operation before any side effect. **H0:** a conventional access-control gate or test harness alone explains the observed result. Compare matched information and observed rejection outcomes rather than claiming inherent superiority.
+```mermaid
+flowchart LR
+    A["Existing AI agent"] --> B["Action proposal"]
+    B --> C["KiLu approval and bounded grant"]
+    C --> D["Existing executor checks grant"]
+    D --> E["Execution report / receipt"]
+```
 
-**Failure criteria:** any unauthorised effect, invalid token accepted, altered binding accepted, receipt accepted after covered-field mutation, or missing provenance. Record partial failures, latency and integration cost; no manufactured PASS.
+A bounded technical evaluation can reuse the buyer's current agent/executor while introducing one mandatory approval/grant boundary and one independent receipt verifier.
 
-This package is not authorisation to run against any external organisation's live infrastructure.
+## Acceptance conditions
 
-[Review protocol](06_REVIEW_PROTOCOL.md) · [Commercial diligence](10_COMMERCIAL_DILIGENCE.md).
+1. A matching signed authorization permits the agreed test action once, under the selected runtime, toolchain, scope and time limits.
+2. Changed action, missing approval, wrong runtime, expired grant or consumed JTI **fails closed** at the execution boundary.
+3. A completed action yields an issuer-linked report and receipt; changed covered evidence fails independent verification.
+4. The deployment makes the authority check unavoidable for the evaluated side-effecting route.
+5. Latency is measured **at the actual buyer integration boundary**, not inferred from the separate AegisAI or STM32 benchmark.
+6. Record customer-visible adoption effort: integration days, latency overhead, workflow interruptions, storage and operational cost.
+
+**Evidence-to-product transition:** existing verified mechanisms support a narrow acquisition or licensing evaluation today. The buyer-specific integration is a new qualification of the selected target system, not an invitation to restart closed experiments.
+
+[Architecture](02_ARCHITECTURE_BOUNDARIES.md) · [Previous results](04_EXECUTION_EVIDENCE.md) · [Technical buyer protocol](06_REVIEW_PROTOCOL.md).

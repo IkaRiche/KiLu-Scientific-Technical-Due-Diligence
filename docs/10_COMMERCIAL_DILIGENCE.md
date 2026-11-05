@@ -1,15 +1,36 @@
-# Technical acquisition / licensing diligence
+# Technology acquisition, licensing and integration review
 
-This public index is not a pitch claiming a committed buyer, an asset valuation or a selected transaction structure.
+## Why this is an infrastructure asset
 
-A prospective reviewer should separately verify:
-1. **Chain of title:** legal ownership, contributions, filings, licences, assignments and territorial status from primary documents.
-2. **Asset perimeter:** which of AegisAI, KiLu, DeTAK, Android interfaces, SDK, and optional StasysOS components are actually included or excluded.
-3. **Maintenance:** dependencies, security update obligations, operator and deployment costs, reproducibility, incident response.
-4. **Differentiation:** measured benefit over IAM, workflow approvals and conventional per-action capability tokens.
-5. **Acceptance:** one agreed sandbox integration, negative controls, receipt validation and failure handling.
-6. **Commercial rights:** whether any future transaction transfers code, usage rights, patents, trademark, know-how, support, exclusivity, or licensing royalties.
+KiLu addresses a growing technical gap between autonomous AI planning and accountable execution. A model can propose actions at scale; the authority to carry them out must remain with independently enforceable policy, designated humans and bounded cryptographic permissions.
 
-No private original record or legal document is supplied here. Public evidence supports a **screening decision**, not final acquisition due diligence.
+**Transferable value to evaluate:** a deterministic authority protocol, grant issuance and consumed-JTI handling, split-trust Android approval surface, bounded execution interfaces, independently verifiable receipts and an MCU-class DeTAK verification path. These are different product assets, each with an evidence owner.
 
-[Executive overview](01_EXECUTIVE_OVERVIEW.md) · [Limits](09_LIMITATIONS_AND_RISKS.md).
+## Buyer opportunities
+
+| Buyer category | Use case | Value hypothesis to measure |
+|:--|:--|:--|
+| AI cloud / infrastructure operator | Govern tool calls and workflow side effects without relying on LLM self-restraint | Lower custom policy/approval engineering; stronger authorization evidence |
+| Enterprise agent platform | Apply human authority to privileged actions without giving agents signing keys | Clear operator custody and scoped, inspectable consent |
+| Regulated fintech or payments integrator | Protect an AI-initiated transaction admission path before existing rails | Deterministic policy check and independent auditable permission |
+| Edge/robotics integrator | Verify signed action authority on constrained local hardware | Demonstrated MCU grant verification at measured latency |
+
+These are **integration and commercial hypotheses**, not claims of committed contracts, field deployments or validated monetary ROI.
+
+## Evidenced product attributes
+
+- 10,000-case AegisAI deterministic governance benchmark with measured p95 latency.
+- STM32H7 Ed25519 grant checking and valid-grant gate with recorded hardware timing.
+- Android historic device approval path and local signing-key separation.
+- Compiled Linux Hub, single-use JTI, bounded action and independent Go receipt tests.
+- A defined, tested exact-action V2 cryptographic format for the next approval protocol.
+
+[Engineering outcomes](04_EXECUTION_EVIDENCE.md) · [Benchmark detail](14_DETERMINISTIC_GATE_EVIDENCE.md).
+
+## Transaction workstreams
+
+A buyer can assess a **defined** licensing, acquisition or strategic integration perimeter. Before any binding offer, establish (1) chain of title and contributorship, (2) patent and know-how allocation, (3) third-party licensing obligations, (4) maintenance/security responsibilities, (5) target-side integration acceptance and measured costs, and (6) the precise transferred rights, if any.
+
+Publication here grants no software/IP license and does not identify or commit any prospective buyer or deal terms. Original records and source code remain with the rights holder; this repository supplies sufficient **public screening material** to decide whether a deeper scoped transaction review is worthwhile.
+
+[IP policy](../LEGAL.md) · [Disclosure](07_DISCLOSURE_BOUNDARY.md) · [Technical evaluation](06_REVIEW_PROTOCOL.md).

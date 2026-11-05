@@ -1,24 +1,27 @@
-# Reviewer threat model (public abstraction)
+# KiLu security model — remove the AI model from authority
 
-**Assets:** the distinction between a proposed action and permitted execution, the approver's meaningful assent, the executor's grant checks, JTI non-reuse and receipt provenance.
+**Security principle:** untrusted text, AI-generated plans and model output do not constitute execution permission. Trusted grant issuance and checked execution live outside the language model.
 
-**Trust boundaries:** LLM/planner → policy service; displayed action → human signature; policy approval → grant issuer; issuer → executor; executor → signed report; receipt → offline verifier.
+## Key control boundaries
 
-| Threat | Required defence at the tested boundary | Current public evidence ceiling |
-|---|---|---|
-| Prompt injection against an upstream LLM | Independent deterministic gate does not interpret instructions as authority; exact action and policy remain enforced | Architecture and internal scoped injection fixtures, not universal immunity |
-| Remote agent attempts to obtain human key | Private signing key remains on separate Approver device; no grant without required approval | Android key-storage path is public; device compromise and deployment isolation remain separate questions |
-| Planner-issued pseudo-authority | A plan alone cannot mint an executable grant | Architectural contract, implementation-specific tests |
-| Action substitution | Executed payload bound to approved digest | Scoped Cloud V2 and Android JVM tests |
-| Wrong runtime / toolchain | Exact runtime/toolchain binding enforced before effect | Scoped executor tests |
-| Token replay | Issued and consumed token/JTI state checked | Scoped internal synthetic test |
-| Approval impersonation | Registered approver key and signed bytes verified | Experimental synthetic signature tests |
-| Display/signature mismatch | Exact displayed payload linked to signature, including device UX conditions | New physical-device V2 ceremony **not established** |
-| Receipt laundering | Issuer and executor provenance verified, covered mutations rejected | Scoped independent Go receipt verifier |
-| Bypass of grant-mediated route | All relevant side effects cross actual enforcement boundary | **Not established universally** |
+| Threat or failure mode | Independent KiLu / DeTAK control | Evidence |
+|:--|:--|:--|
+| **Prompt injection of an upstream AI** | The authorization gate evaluates typed rules and cryptographic grants, **not natural-language orders** | Deterministic design; 1,748 synthetic AegisAI injection-category cases with zero defined safety failures |
+| **Agent attempts to self-authorize** | Agent does not possess issuer authority or separate Android Approver private key | Split-trust design and Android local key storage |
+| **Changed action after approval** | Signature commitment binds exact action/plan and intended runtime/toolchain | CREG-003 Android JVM/Cloud mutation controls |
+| **Out-of-scope runtime or tool** | Execution grant carries enforced runtime/toolchain binding | KiLu Cloud/compiled Hub tests |
+| **Replay of an existing authority token** | JTI is issued and consumed with replay rejection | KiLu scoped JTI CI tests |
+| **Unverifiable post-effect account** | Signed execution report, issuer receipt and Go offline verification | CREG-001/002 controlled CI |
+| **Unapproved expansion of permissions** | Bounded grant checks time, steps and signed constraints | CREG-003 synthetic constraint/expiry regression |
 
-**Out of scope:** all external executor code paths, production physical effects, hosted-platform security, independent penetration testing and any guarantee that a human fully understood a presented action.
+## What the model cannot do
 
-This file reveals no operational attack details and is not a security assessment of live services.
+A successful prompt injection may change a model's suggested command. **It does not give that model a valid human signature, an issuer credential or an enforceable grant.** On an executor route that checks KiLu authority, the model's instruction is not an authorization primitive.
 
-[Evidence](../evidence/INDEX.md) · [Limitations](09_LIMITATIONS_AND_RISKS.md).
+This security property is a key infrastructure differentiator, distinct from asking a model to self-police or merely storing audit logs after execution.
+
+## Review boundaries
+
+Security statements apply to the actual integrated enforcement path and named experiments. A separate deployment evaluation must confirm that all selected side effects pass through the gate and that the separate Android authority device is controlled by its intended operator. StrongBox/per-signature hardware biometric enforcement, a newly deployed all-V2 trace and external security certification are additional, separately scoped questions — **not failures of the proven deterministic gate**.
+
+[Architecture](02_ARCHITECTURE_BOUNDARIES.md) · [Approver evidence](05_APPROVAL_EVIDENCE.md) · [Detailed mechanisms and measurements](14_DETERMINISTIC_GATE_EVIDENCE.md).

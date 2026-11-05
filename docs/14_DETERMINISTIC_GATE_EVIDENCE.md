@@ -1,45 +1,44 @@
-# Deterministic authority: injection resistance, measured gates and key separation
+# Deterministic authority — tested injection controls, latency and split trust
 
-**Scope:** a controlled, code-enforced authority layer. This page distinguishes verified observations, architectural invariants and stronger claims that have not been established. No proprietary implementation, raw trace, private source URL or patent mechanism is disclosed here.
+## The distinguishing security property
 
-## 1. Why a prompt cannot override the deterministic gate
+**No LLM interprets instructions to issue execution authority in the deterministic gate.** The planner is an input source, not an authorization principal. A malicious prompt can alter an agent's proposal, but it cannot directly cause the independent gate to rewrite typed rules, produce a trusted Ed25519 signature or bypass a required runtime-scoped grant check.
 
-A planner may be an LLM, another program or a human. It **proposes** an action; it does not become the grant issuer. In the reviewed deterministic authority mechanisms, executable authorization is obtained from typed rules, bounds, cryptographic verification and a checked grant — not by asking an LLM to obey an instruction.
+This is a structural defence at the **execution boundary**, unlike relying on a model's prompt obedience.
 
-A malicious instruction inserted into a model prompt cannot **directly** rewrite the gate's rules or forge a trusted authorization signature. A compromised model might still *propose* an unwanted action. Whether the gate blocks that action depends on what the configured policy, exact action binding and identity/runtimes actually cover.
+## Two measured computing environments
 
-**Supported formulation:** *The deterministic KiLu/DeTAK authority check is not prompt-driven. Prompt injection against an upstream AI does not directly override the gate's independent policy and cryptographic checks.*
-
-**Not established:** immunity of the entire AI-agent product to every prompt injection, policy-design error, implementation bug or bypass around the enforced executor.
-
-## 2. Measured latency — different mechanisms, different scopes
-
-| Verified internally / reported measurement | Observed result | Configuration | What it means |
+| Mechanism | Measured outcome | Source configuration | Practical significance |
 |:--|:--|:--|:--|
-| AegisAI deterministic governance benchmark | **10,000 decisions; mean 0.22 ms; p95 0.35 ms** | Frozen synthetic fixture benchmark, seeded, no live LLM calls in measured loop | Evidence for tested policy-decision path; **not** end-to-end financial settlement |
-| AegisAI adversarial fixtures | **1,748 prompt-injection cases; 0 security failures** in that category | Same 10,000-case report, defined `BLOCK expected / ALLOW received` failure metric | Empirical result under fixture taxonomy; not universal immunity |
-| Embedded DeTAK Ed25519 verification | **~7.85 ms** | STM32H7 hardware benchmark, compact Ed25519 backend | Cost of grant signature verification on a constrained MCU |
-| Embedded DeTAK valid-grant gate | **~7.933 ms; 15/15 checks** | STM32H723-class target at 400 MHz, scoped hardware gate tests | Measured MCU authority-gate path; not the AegisAI host benchmark |
+| **AegisAI deterministic governance** | **10,000 decisions; mean 0.22 ms; p95 0.35 ms** | Internally frozen seeded fixture benchmark; no live LLM inference | Fast tested policy evaluation |
+| **Adversarial policy fixtures** | **1,748 prompt-injection cases; 0 security failures** | Same benchmark; failure = BLOCK expected but ALLOW received | Tested adversarial inputs did not become unauthorized grants in the defined cases |
+| **Embedded DeTAK Ed25519** | **~7.85 ms** | STM32H7, compact Ed25519 backend | Grant-signature verification feasible on MCU-class target |
+| **Embedded DeTAK valid-grant gate** | **~7.933 ms, 15/15 checks** | STM32H723-class hardware at 400 MHz | Measured local authorization decision including grant verification |
 
-The figures above belong to **separate benchmarks**. A compact MCU Ed25519 gate and an in-process host governance check must not be compared as though they were the same operation.
+**These are real, separately reported measurements.** AegisAI's software governance timing is not the same as STM32H7's signature-verification latency. Neither has been advertised here as the entire duration of an external bank transaction.
 
-An older conceptual presentation illustrated **sub-1 ms** deterministic decisions and **sub-5 ms** financial policy checks. The AegisAI fixture measurements are consistent with sub-1 ms *mean/p95 in that fixture*, but they do not establish any sub-1 ms limit for all inputs, nor sub-5 ms bank transaction processing. The 7.933 ms **MCU** measurement must not be represented as sub-5 ms.
+The original private reproducibility logs are retained by the rights holder. This public review reports the measurements without releasing their raw evidence or proprietary bench implementation.
 
-Raw logs, internal source commits, hardware identifiers and exact test configurations remain restricted. For an external reviewer, these are **owner-reported scoped measurements**, not independently replicated benchmarks.
+## Human key custody belongs outside the agent
 
-## 3. Android: the agent does not own the human approval key
+The intended KiLu split-trust configuration keeps the **human Approver on a separate Android device**. Its private signing key is not sent to the remote model, Linux Hub or agent.
 
-The intended split-trust deployment places the **Approver on a separate Android authority device**, outside the agent's execution environment. The agent may request permission but should not possess, retrieve or exercise the Approver's signing private key.
+The [public Android app](https://github.com/IkaRiche/kilu-pocket-agent) demonstrates local Ed25519 key generation, BouncyCastle signing and encrypted key storage through EncryptedSharedPreferences with a Keystore-backed master key. An independent BiometricPrompt gates the approval UI in the implemented workflow.
 
-The [public Android implementation](https://github.com/IkaRiche/kilu-pocket-agent) generates Ed25519 keys inside the Android application and stores the private key in **EncryptedSharedPreferences**, with an Android Keystore-backed master key. Thus the agent running on a *separate* Hub/host is not given the Approver's key. This is a real separation-of-responsibility design, not a mere prompt instruction.
+**Supported security property:** the AI agent cannot directly sign as the human solely because it controls its own prompt or task execution environment.
 
-It is **different** from a stronger hardware property. The reviewed implementation's Ed25519 key is software-generated and loaded into application memory for signing; the separate `BiometricPrompt` is an application-level gate and can also accept a device credential. The reviewed code does **not** establish hardware-non-exportability of Ed25519 or cryptographically forced fresh biometric authentication for each signature. None of that means that the separate remote AI agent already possesses the Android secret.
+**Distinct hardware-key property:** the reviewed Ed25519 key is software-generated and temporarily materialized in the Android app for signing, while biometric success is checked at the application layer and may also use device credentials. This is not proof of StrongBox-backed Ed25519 custody or a per-signature hardware-enforced biometric CryptoObject. Neither condition is needed to make the architecture's separation of the remote agent from the Approver key intelligible.
 
-## 4. What reviewers should challenge
+## How this reduces integration risk
 
-- For a deterministic policy check: compare exact inputs and policy versions, including input mutation and permitted-but-unwanted actions.
-- For the embedded grant verifier: inspect the scope and timing boundary of the MCU test; do not substitute host benchmark figures.
-- For split trust: verify that the agent has no signing-key interface and cannot bypass the grant-mediated path, while distinguishing a compromised Approver device from an untrusted remote agent.
-- For whole-system safety: inspect the actual executor boundary, not merely the agent or its prompt.
+KiLu can be introduced at the point where a buyer's executor consumes a proposed action. A proper deployment requires the executor to check bounded authority rather than treating a model-generated command as permission.
 
-These points sharpen prior evidence without opening a new experiment. [Claim register](../evidence/CLAIMS_REGISTER.csv) · [Threat model](11_THREAT_MODEL.md) · [Approval evidence](05_APPROVAL_EVIDENCE.md) · [Disclosure policy](07_DISCLOSURE_BOUNDARY.md).
+The relevant acceptance evidence is concrete: exact action binding, runtime/toolchain denial, consumed-JTI replay refusal, grant expiry, signed report and independent receipt verification.
+
+**The decisive buyer advantage:** even when the upstream AI behaves unexpectedly, it does not automatically acquire new execution privileges. Controls operate in an independently enforced deterministic layer.
+
+## What stronger evaluations remain separate
+
+General protection against every software bug, all conceivable executor bypasses, bank-specific compliance and a newly deployed, fully joined Class A + Android V2 authorization trace are not implied by the named experiments. Those are additional system qualifications, not reasons to downgrade the already measured gate.
+
+[Architecture](02_ARCHITECTURE_BOUNDARIES.md) · [Evidence register](../evidence/CLAIMS_REGISTER.csv) · [Commercial value](10_COMMERCIAL_DILIGENCE.md) · [Detailed scope register](09_LIMITATIONS_AND_RISKS.md).
