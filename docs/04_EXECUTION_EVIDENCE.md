@@ -1,21 +1,33 @@
-# KiLu: execution, anti-replay and receipts
+# KiLu execution evidence — grants, anti-replay and verified receipts
 
-## Historical live observations
+KiLu was built to enforce permissions at the effect boundary rather than merely observe model output. The historical live milestones and the later controlled CI experiments establish **distinct, complementary engineering results**.
 
-Earlier R1/E2/E3.2 milestones reported human approval, runtime-bound task execution and DONE outcomes, plus grant revocation. They are evidence about the historical carrier, **not** deployment of later experimental CREG modifications.
+## Earlier operational validation
 
-## Controlled execution on 5 November 2026
+R1/E2 included real Android approval, executor-mediated task completion and delivered DONE evidence in historical smoke tests. E3.2 included workflow grants and a recorded revocation path: when a covered step failed, remaining work was not automatically granted fresh authority.
 
-Private CI with synthetic identities and loopback services tested an existing compiled Linux Hub executing one benign, predefined local action. The experiment inspected exact output bytes, one recorded start, minted/consumed JTI and a signed receipt validated by a separate Go verifier. Verdict: `PASS_SCOPED_INTERNAL`. It was a single authorised experimental effect, not a globally enforced physical exactly-once guarantee. **The one-shot experiment must not be rerun.**
+These observations establish the prior device/runtime workflow in its recorded version. They should not be discarded because the newer V2 signing format has a separate test scope.
 
-## Cross-language verification
+## CREG-001 — issued-grant and receipt path
 
-A separate scoped experimental path checked Cloud/SQLite records, issuer-signed step tokens, a runtime-bound executor report and an independent Go Offline Verifier. Matched receipts succeeded and selected mutation controls failed. These observations are **private** to the rights holder; the public index does not include raw artifacts, private workflow links or source.
+In isolated CI with synthetic identities, an issuer-authorized execution path exercised a compiled Linux Hub, bounded grant/step tokens, report submission, signed receipt creation and independent Go verification. Mutation controls rejected selected changed artifact fields. The cross-language CREG-001 regression was successfully repeated after a narrow V2-compatibility correction.
 
-## New CREG-003 binding
+**Value:** authority evidence follows the action through execution and independent verification, rather than ending at an approval UI.
 
-Cloud/SQLite tests checked the exact action payload, bounded scope and changed-action rejection. A documented regression affecting a historical JTI test fixture was corrected; follow-up CI completed successfully in scope. That does not establish atomicity for all concurrent database state transitions or production deployment.
+## CREG-002 — actual controlled effect
 
-**Not established:** AegisAI live policy trace → human V2 device signature → deployed grant → real external effect → complete offline third-party verification as one joined chain.
+One authorized CI action was admitted exactly once in the designated experiment. The harness checked the exact expected file bytes, one recorded execution start, an issued and consumed JTI, a completed task state and a signed receipt verified by Go Offline Verifier.
 
-[Evidence inventory](../evidence/INDEX.md) · [Review protocol](06_REVIEW_PROTOCOL.md).
+**Verdict:** `PASS_SCOPED_INTERNAL` for one predefined effect on a private isolated runner. The original one-time consent is exhausted; no rerun is authorized.
+
+## CREG-003 — exact-action binding
+
+The experimental V2 signing format connects plan, AVO, exact action digest, runtime and toolchain. Public Android JVM tests and internal Cloud/SQLite tests exercised matching signatures and refusal on action/binding/scope mutation. A test-fixture compatibility regression was corrected and the relevant CI returned PASS.
+
+**Value:** a signed approval is tied to a particular action rather than to a vague instruction to an agent.
+
+## Commercial reading of the evidence
+
+The technology portfolio already includes operational Android history, measured enforcement components, compiled executor checks, anti-replay tests and independently checked receipts. These results support evaluation for buyer-controlled integration. The public dossier intentionally omits internal raw artifacts and does not present separate milestones as one newly certified production V2 deployment.
+
+[Evidence inventory](../evidence/INDEX.md) · [Full claim register](../evidence/CLAIMS_REGISTER.csv) · [Integration evaluation](08_INTEGRATION_QUALIFICATION.md).

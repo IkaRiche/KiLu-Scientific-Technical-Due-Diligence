@@ -1,37 +1,52 @@
-# Executive overview — authority as a separate infrastructure capability
+# Executive overview — execution authority for an agentic world
 
-## Why it matters
+## The infrastructure gap
 
-An AI agent may produce useful plans but should not be trusted to authorise the side effects of its own suggestions. An audit log after the action is insufficient to establish whether **that exact action** was authorised, for **that runtime**, under **those limits**, before any effect occurred.
+AI agents already generate commands, operate tools and initiate transactions. The hard problem is not whether a model can suggest the next action. It is whether **an independent authority** can determine that a particular action, on a particular runtime and within a particular window, is permitted **before** a side effect occurs.
 
-## Technical proposition
+Prompt engineering cannot substitute for execution authority. Access to a broad service credential does not prove that an individual action was authorized.
 
-KiLu separates planning, policy admissibility, human escalation, execution authority and execution. A bounded grant can constrain action identity, time and executor, while an independently checked report/receipt can support post-effect review.
+## The KiLu proposition
 
-This is a **scoped implementation and evaluation thesis**, not a universal theorem that one architecture is superior or a warranty that all tool paths are protected.
+**KiLu introduces a deterministic, cryptographically bounded authority layer between AI intent and execution.** Planning can be stochastic. The execution decision does not need to be.
 
-## Evidence-backed performance and trust separation
+The capability is composed of complementary responsibilities:
 
-The authority gate is designed to evaluate typed grants and policy, not to follow natural-language instructions. In an earlier frozen AegisAI no-LLM fixture run, 10,000 decisions were measured at 0.22 ms mean and 0.35 ms p95. Separate embedded DeTAK STM32H7 tests reported ~7.933 ms for a valid-grant gate with Ed25519 verification. These are measured *different boundaries*, not a claim of full transaction latency.
+1. **Policy admissibility:** AegisAI assesses structured proposals, with a separate Class A signed decision-attestation lane.
+2. **Human authority when needed:** a separately placed Android Approver retains the human signing key; a remote agent does not receive it.
+3. **Bounded cryptographic permission:** KiLu issues runtime/toolchain-linked grants with expiry, action scope and consumed-JTI controls.
+4. **Executor enforcement:** a Linux Hub checks permission before executing; embedded DeTAK demonstrates a grant-checking profile on STM32H7.
+5. **Evidence of authorization:** execution reports and signed receipts are checked by an independent Go Offline Verifier in the tested scope.
 
-The human Approver's signing key is intended to remain on a separate Android device inaccessible to a remote agent. This is a genuine split-trust property; it must not be conflated with unproven StrongBox-based Ed25519 key custody.
+These are separable technologies with distinct qualification records, not necessarily one deployed composite product.
 
-[Performance and trust qualifications](14_DETERMINISTIC_GATE_EVIDENCE.md).
+## Quantified technical assets
 
-## Components and ownership boundaries
-
-| Component | Engineering role | Evidence ceiling |
+| Result | Recorded observation | Why it matters |
 |:--|:--|:--|
-| AegisAI | Policy/admissibility and conditional Class A decision attestation | Separate internally evidenced governance lane |
-| KiLu / DeTAK | Bounded authorisation, single-use control and receipts | Internal scoped synthetic Cloud/Hub tests |
-| Android Approver | Human approval interface and signer | Prior device approval reported; exact-action V2 JVM evidence only |
-| Linux Hub | Pre-effect grant validation and scoped execution | Compiled executor exercised in isolated CI |
-| Offline Verifier | Independent receipt verification | Scoped cross-language verifier result |
-| KiLu SDK | Public evaluation/developer interface | Mock examples not equivalent to grants |
-| StasysOS | Separately evaluated bounded runtime technology | No automatic end-to-end integration claim |
+| AegisAI policy benchmark | **10,000** deterministic fixture decisions; **0.22 ms mean**, **0.35 ms p95** | Local policy-governance computation is measurable without LLM inference overhead |
+| Injection category in that benchmark | **1,748** fixtures; **0** safety failures by the fixed test definition | Adversarially labeled inputs did not become disallowed permissions in the measured cases |
+| Embedded DeTAK | Ed25519 check **~7.85 ms**; valid-grant gate **~7.933 ms** on STM32H7 | Bounded signed authority can be checked on MCU-class hardware |
+| KiLu execution chain | One consented synthetic action, JTI consumed, signed receipt verified in Go | A tested path from permission to effect to independently checked outcome |
+| Android and workflow history | Earlier real-device E2E and tested workflow grant/revocation paths | A human authority surface and operational split-trust history exist |
+| Exact-action V2 | Android JVM and Cloud/SQLite signature and mutation checks | Specific-action signing and issue-time checks have executable regression evidence |
 
-## Why a buyer might evaluate this
+The first two rows are one synthetic AegisAI run. The hardware and CI rows are separate measured boundaries. [Detailed methodology](14_DETERMINISTIC_GATE_EVIDENCE.md) · [Full claims register](../evidence/CLAIMS_REGISTER.csv).
 
-Possible uses include infrastructure automation, tool-calling agents and governed enterprise workflows. Buyer integration value must be established on one real target workflow, with evidence of fail-closed behaviour, operational cost, constraints and lifecycle management. This publication does not identify a buyer, give a valuation, include a transaction offer or promise an integration.
+## Differentiated buyer value
 
-[Qualification](08_INTEGRATION_QUALIFICATION.md) · [Commercial diligence](10_COMMERCIAL_DILIGENCE.md).
+**AI infrastructure:** govern tool executions independently of model alignment or prompt behavior.
+
+**Enterprise agents:** restrict high-impact actions and preserve a receipt trail linking authorization to execution in the covered integration.
+
+**Agentic finance:** apply a deterministic authority check between a stochastic payment initiator and the existing payment rail. This is a candidate integration market, not a declaration of live banking clearance.
+
+**Edge and autonomous equipment:** verify signed grants locally on MCU-class devices without delegating the decision to a remote LLM.
+
+The architecture does not require replacing the buyer's agent framework, models or executor fleet. Its value is the independently enforced boundary across those components.
+
+## Transaction relevance
+
+Potential transaction structures include licensing, strategic integration or acquisition of a defined technology/IP perimeter. The separate AegisAI, KiLu, DeTAK, Android, SDK and optional runtime assets must be individually identified and their ownership/title verified before a formal transaction. Public documentation does not disclose proprietary source or original raw evidence.
+
+[Integration qualification](08_INTEGRATION_QUALIFICATION.md) · [Commercial and IP review](10_COMMERCIAL_DILIGENCE.md) · [Technical scopes](09_LIMITATIONS_AND_RISKS.md).

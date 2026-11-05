@@ -1,9 +1,21 @@
-# AegisAI governance evidence
+# AegisAI — deterministic policy admissibility
 
-AegisAI is the upstream admissibility component. Its internally documented Class A path uses Ed25519 signed envelopes on a completed decision trace when a signing key is configured. Internal HMAC continuity data (Class B) is not a publicly verifiable governance signature.
+AegisAI evaluates structured actions against explicit policy. **An upstream LLM can propose an action; it does not decide the deterministic authorization outcome.** AegisAI keeps decision evidence separate from the grant authority of KiLu Network.
 
-The existing governance lane includes policy evaluation, a configured signing path and a Gemini-backed proposal adapter as reported internally. No confidential source, live signed proof object or private evidence ledger is reproduced here.
+## Measured governance behavior
 
-**Non-equivalence:** AegisAI policy attestation ≠ human approval of an exact KiLu V2 action ≠ a KiLu-issued executor token. Joining those different objects requires common canonical action commitment, signed policy identity/version and outcome, trusted signing-key provenance, and substitution/replay controls. A complete cross-product binding has **not** been established for external verification.
+An internally recorded, seeded **10,000-case benchmark** of the policy path, with **no live LLM calls**, reported:
 
-The public claim ceiling is intentionally narrower than architecture or historical marketing language. See [register](../evidence/CLAIMS_REGISTER.csv) and [limitations](09_LIMITATIONS_AND_RISKS.md).
+- **0.22 ms mean decision latency; 0.35 ms p95** in the measured fixture.
+- **0 safety failures in 1,748 prompt-injection-category fixtures**, under the test's predefined failure criterion.
+- A Class A **Ed25519 DecisionTraceAttestation** path for signed governance outcomes when a signing key is configured.
+
+These numbers show a fast deterministic policy-evaluation path in a specified harness. They are not a payment-processing benchmark, cloud-network SLA or general-purpose immunity certificate.
+
+## Role in the product family
+
+AegisAI supplies admissibility evidence. **KiLu** independently issues execution grants and receipts. The Android Approver supplies human signatures when approval is required; the Hub enforces a grant before performing the covered operation. Each responsibility is deliberate: no language-model prompt becomes a substitute for trusted authorization.
+
+The later experimental V2 exact-action path has separate Android JVM and Cloud signing tests. A unified live Class A/V2 trace across all components is a distinct qualification objective, **not a reason to discount the proved AegisAI and KiLu mechanisms**.
+
+[Benchmarks and trust boundaries](14_DETERMINISTIC_GATE_EVIDENCE.md) · [Architecture](02_ARCHITECTURE_BOUNDARIES.md) · [Claims](../evidence/CLAIMS_REGISTER.csv).

@@ -1,127 +1,108 @@
 <p align="center">
-  <img src="assets/kilu-hero.svg" width="100%" alt="KiLu — execution authority for autonomous systems. An agent proposes; a bounded grant authorizes; the executor verifies." />
+  <img src="assets/kilu-hero.svg" width="100%" alt="KiLu — independent execution authority for AI-driven systems" />
 </p>
 
-<p align="center">
-  <strong>Authority for autonomous execution</strong><br/>
-  <sub>An evidence-first field guide to AI-agent permissions, human approval, bounded execution and verifiable outcomes.</sub>
-</p>
+<h1 align="center">KiLu · Execution Authority for AI Agents</h1>
+<p align="center"><strong>AI proposes. KiLu authorizes. The executor verifies.</strong></p>
+<p align="center">Deterministic, cryptographically bounded control of AI-initiated actions — independent of what the model says or intends.</p>
 
 <p align="center">
   <a href="README_RU.md">Русский</a> ·
-  <a href="docs/00_START_HERE.md">Start here</a> ·
-  <a href="evidence/CLAIMS_REGISTER.csv">Claims register</a> ·
-  <a href="docs/11_THREAT_MODEL.md">Threat model</a> ·
-  <a href="docs/06_REVIEW_PROTOCOL.md">Technical review</a> ·
-  <a href="LEGAL.md">Rights & IP</a>
+  <a href="docs/01_EXECUTIVE_OVERVIEW.md">Technology value</a> ·
+  <a href="docs/04_EXECUTION_EVIDENCE.md">Execution proof</a> ·
+  <a href="docs/14_DETERMINISTIC_GATE_EVIDENCE.md">Benchmarks</a> ·
+  <a href="docs/08_INTEGRATION_QUALIFICATION.md">Integration</a> ·
+  <a href="evidence/CLAIMS_REGISTER.csv">Evidence register</a>
 </p>
-
 <p align="center">
-  <a href="https://github.com/IkaRiche/KiLu-Scientific-Technical-Due-Diligence/actions/workflows/validate.yml"><img src="https://github.com/IkaRiche/KiLu-Scientific-Technical-Due-Diligence/actions/workflows/validate.yml/badge.svg" alt="Documentation integrity CI"></a>
-  <img alt="Status: public evidence index" src="https://img.shields.io/badge/status-public%20evidence%20index-3b82f6">
-  <img alt="License: proprietary documentation" src="https://img.shields.io/badge/IP-all%20rights%20reserved-64748b">
+  <a href="https://github.com/IkaRiche/KiLu-Scientific-Technical-Due-Diligence/actions/workflows/validate.yml"><img src="https://github.com/IkaRiche/KiLu-Scientific-Technical-Due-Diligence/actions/workflows/validate.yml/badge.svg" alt="Documentation checks"></a>
+  <img src="https://img.shields.io/badge/architecture-deterministic%20authority-147d75" alt="Deterministic authority architecture">
+  <img src="https://img.shields.io/badge/package-public%20technology%20review-2c5282" alt="Public technology review">
 </p>
 
 ---
 
-> **An AI agent should not be its own execution authority.**
->
-> The model proposes. Policy determines admissibility. A human may approve. KiLu issues bounded authority. A Hub validates it **before** an effect. A receipt then supports a narrowly defined after-the-fact check.
+## Give AI agents capabilities — not unchecked authority
 
-**KiLu** is an execution-authority research and engineering program. This repository is its **public, sanitized scientific and technical due-diligence index**: what exists, what was actually tested, what remains unverified and how a reviewer can challenge each claim. It follows the evidence discipline of the [STASYS/LMA public review](https://github.com/IkaRiche/LMA-Scientific-Technical-Due-Diligence), without importing LMA mechanisms or presenting these products as a single proven system.
+An autonomous agent can write code, operate tools, request payments or manage infrastructure. **Its proposed action must not be its permission to execute.**
 
-**Not a source-code release. Not a commercial offer. Not evidence of universal AI safety.** Primary proprietary code and raw experimental records remain under the rights holder's custody.
+**KiLu solves this at the execution boundary.** A separately governed authority issues a cryptographically signed, bounded grant. The executor checks that grant **before** taking the controlled action. A traceable report and receipt allow verification afterward.
 
-## The problem in one diagram
+**No LLM is required in the deterministic authorization gate.** Prompt injection can corrupt an upstream model's proposal, but it cannot directly instruct the KiLu/DeTAK gate to ignore policy, forge a signature or create a valid grant. Human approval keys remain outside the remote agent's environment in the split-trust design.
+
+This is **infrastructure-level separation of intent from authority**, not another prompt-based guardrail.
+
+## Measured engineering evidence
+
+| Evaluated capability | Recorded outcome | Evidence class |
+|:--|:--|:--|
+| **Deterministic governance** | **10,000** AegisAI fixture decisions; **0.22 ms mean / 0.35 ms p95** | Internal, pinned no-LLM benchmark |
+| **Adversarial governance cases** | **1,748** prompt-injection fixtures; **0** security failures by the recorded metric | Same internal benchmark |
+| **Embedded cryptographic gate** | Ed25519 verification **~7.85 ms**; complete valid-grant gate **~7.933 ms** on STM32H7 | Internal physical MCU benchmark; separate timing boundary |
+| **Anti-replay and runtime binding** | Signed grants, JTI consumption and wrong-action/runtime denial exercised | Scoped Cloud/SQLite + compiled Linux Hub CI |
+| **Controlled execution & evidence** | **One authorized effect**, exact output, signed report, receipt and independent Go verification | CREG-002 one-shot, scoped internal CI |
+| **Real Android approval history** | Earlier R1/E2 device approval and execution, followed by workflow grant/revocation milestones | Historical live validation records |
+| **Exact-action V2** | Android JVM and Cloud/SQLite signature-binding and mutation tests passed | Public Kotlin CI; private Cloud CI |
+
+These are **different tests of specific mechanisms**, not one combined latency SLA or a claim that an experimental V2 has already been deployed. Method, source access and precise boundaries: [Evidence register](evidence/CLAIMS_REGISTER.csv) · [Benchmark detail](docs/14_DETERMINISTIC_GATE_EVIDENCE.md).
+
+## Why the architecture matters
+
+| Ordinary agent-centric approach | KiLu's authority separation |
+|:--|:--|
+| Model is trusted to obey a prompt or decide when to call a tool | **Deterministic gate** checks policy and signed permission independently of the model |
+| Agent holds broad reusable service credentials | **Bounded authority:** action/scope, runtime/toolchain, expiry and single-use JTI in the exercised lanes |
+| Human approval is just a UI state or a message to the model | **Separate Approver:** human-controlled key on Android, not distributed to the agent |
+| A log records what happened after an action | **Pre-effect enforcement + signed evidence:** decision, granted scope, report, receipt and offline checking |
+| A general orchestration framework controls the whole workflow | **Composable authority layer:** the existing planner, workflow engine and executor remain independently replaceable |
+
+**The design keeps an untrusted or compromised model from granting itself new execution powers on a properly enforced KiLu-controlled path.** The measured denial and replay tests support this separation within their tested configurations.
+
+## Where the technology fits
+
+- **AI infrastructure and agent platforms:** independently authorize tool calls, API mutations and hosted execution workflows.
+- **Enterprise operations:** control code execution, privileged automation and approval-sensitive actions with evidence of authorization.
+- **Financial and agentic transactions:** a deterministic authorization boundary between AI-initiated payment intent and the regulated financial rail. **Prospective integration use case**, not a claim of banking deployment or certification.
+- **Embedded and autonomous systems:** DeTAK demonstrates grant verification on resource-constrained STM32H7 hardware; no remote LLM is necessary for its authorization decision.
+
+[Technology overview](docs/01_EXECUTIVE_OVERVIEW.md) · [Buyer integration path](docs/08_INTEGRATION_QUALIFICATION.md) · [Technical ownership/transaction review](docs/10_COMMERCIAL_DILIGENCE.md).
+
+## A deliberately separated trust architecture
 
 ```mermaid
 flowchart LR
-  P["Agent / planner\nproposes"] --> A["AegisAI\nadmissibility"]
-  A --> H["Human\nwhen required"]
-  H --> K["KiLu / DeTAK\nbounded grant"]
-  K --> E["Hub\npre-effect verification"]
-  E --> R["Signed report\nand receipt"]
-  R --> V["Offline\nverification"]
-  classDef untrusted fill:#f5f6fa,stroke:#7b8494,color:#18202e;
-  classDef authority fill:#d7f3ef,stroke:#148777,color:#134f47;
-  classDef proof fill:#e4ebff,stroke:#526bd4,color:#263b88;
-  class P untrusted;
-  class A,H,K,E authority;
-  class R,V proof;
+  AI["Agent / planner\nproposes action"] --> POL["AegisAI\npolicy admissibility"]
+  POL --> HUMAN["Android Approver\nwhen required"]
+  HUMAN --> AUTH["KiLu Network\nsigned bounded grants"]
+  AUTH --> EX["Executor / Hub\ncheck before effect"]
+  EX --> PROOF["Report + receipt\noffline verification"]
+  AUTH -. "embedded verifier profile" .-> DET["DeTAK\nMCU grant gate"]
+  classDef lead fill:#e0faf2,stroke:#15806c,color:#14463e;
+  classDef proof fill:#e8eafa,stroke:#5366b2,color:#273b70;
+  class POL,HUMAN,AUTH,EX,DET lead;
+  class PROOF proof;
 ```
 
-*Architecture and intended trust handoffs, **not** a claim that one deployed and independently audited end-to-end chain has already been established. AegisAI adjudicates; KiLu authorizes; the Hub executes. None of these roles may be silently substituted for another.*
+*The diagram shows the separation of roles; each validation milestone has its own evidence scope. KiLu issues grants and receipts. AegisAI evaluates admissibility. The embedded DeTAK gate validates grants on the MCU path.*
 
-## Four things worth evaluating
+## Explore the evidence
 
-| Property | What it could solve | Evidence boundary |
-|:--|:--|:--|
-| **Authority separated from the agent** | A prompt or planner output is not itself permission to perform an effect | Explicit architecture; deployed coverage is lane-specific |
-| **Bounded permission** | Action, target runtime, time window and one-use semantics can be checked at an executor boundary | Scoped Cloud/SQLite and compiled-Linux-Hub tests reported internally |
-| **Human-controlled escalation** | Higher-risk operations can require a visible approval step | Earlier Android approval milestones reported; **experimental V2** has JVM tests, not a completed physical-device V2 ceremony |
-| **Verifiable outcome trail** | Correlate a grant, execution report, receipt and independent verification | Scoped cross-language private CI; not proof of every physical effect or deployment |
+| Review interest | Recommended entry |
+|:--|:--|
+| Business value and acquisition relevance | [Executive overview](docs/01_EXECUTIVE_OVERVIEW.md) · [Commercial diligence](docs/10_COMMERCIAL_DILIGENCE.md) |
+| Executable security mechanisms | [Trust architecture](docs/02_ARCHITECTURE_BOUNDARIES.md) · [Threat controls](docs/11_THREAT_MODEL.md) |
+| Tested execution and anti-replay | [Execution evidence](docs/04_EXECUTION_EVIDENCE.md) · [Evidence inventory](evidence/INDEX.md) |
+| Measured latency and prompt-injection boundary | [Deterministic gate evidence](docs/14_DETERMINISTIC_GATE_EVIDENCE.md) |
+| Android key isolation and human approval | [Approval evidence](docs/05_APPROVAL_EVIDENCE.md) · [Public Android source](https://github.com/IkaRiche/kilu-pocket-agent) |
+| Developers evaluating the integration surface | [KiLu SDK](https://github.com/IkaRiche/kilu-sdk) · [FAQ](docs/13_FAQ.md) |
+| Verification, legal and disclosure conditions | [Review protocol](docs/06_REVIEW_PROTOCOL.md) · [Evidence scope](docs/09_LIMITATIONS_AND_RISKS.md) · [IP boundaries](LEGAL.md) |
 
-See [evidence inventory](evidence/INDEX.md), [execution tests](docs/04_EXECUTION_EVIDENCE.md) and [negative claims](docs/09_LIMITATIONS_AND_RISKS.md).
+## Technology and IP evaluation
 
-## A deterministic gate, not another prompt
+KiLu is a **technology asset and infrastructure integration opportunity**, not merely an Android application. The product family includes distinct policy-governance, grant-authority, approval, execution, verification and embedded components with different maturity and IP ownership boundaries. Any acquisition, licensing or partnership perimeter must be defined explicitly.
 
-**The authority check does not ask an LLM whether to allow an action.** A planner can be manipulated into proposing something unsafe, but prompt injection cannot directly instruct a deterministic policy/cryptographic gate to ignore its rules. The operational requirement is that every relevant effect actually crosses the independent gate.
+This is an **intentional public technical overview**: proprietary implementation, primary raw evidence, keys and unpublished inventions remain under the rights holder's control. The dossier reports scoped results, public verification links and the criteria for deeper technical review.
 
-Measured evidence exists in distinct lanes: a historical AegisAI fixture benchmark reported **10,000 decisions, 0.22 ms mean / 0.35 ms p95**, including **1,748 prompt-injection fixtures** with no security failures under that test's definition. A separate STM32H7 embedded DeTAK benchmark measured **~7.85 ms** for Ed25519 grant verification and **~7.933 ms** for a valid-grant gate. These are **not** the same operation, and neither is an end-to-end financial settlement metric.
+[Start a review](docs/00_START_HERE.md) · [Technical verification](docs/06_REVIEW_PROTOCOL.md) · [All documents](docs/INDEX.md)
 
-In the intended split-trust deployment, the human Approver's signing key remains **on a separate Android device, outside the agent's environment**. The reviewed Android implementation stores a software Ed25519 key locally in encrypted preferences; agent isolation is distinct from a stronger claim of hardware-nonexportability or per-signature hardware-enforced biometric use.
-
-[Detailed evidence and boundaries](docs/14_DETERMINISTIC_GATE_EVIDENCE.md).
-
-## Evidence at a glance
-
-| Evidence lane | What the evidence supports | What it does **not** support |
-|:--|:--|:--|
-| **Historical R1/E2/E3.2** | Owner-reported Android approval, Hub task execution, grant/revoke milestones | New exact-action V2 approval on a physical device |
-| **CREG-001 / CREG-002** | Synthetic Cloud → compiled Linux Hub → scoped effect → signed receipt → Go Offline Verifier; single authorized CI effect | Global exactly-once effects, actual production rollout, a live AegisAI policy decision |
-| **CREG-003** | Exact-payload V2 signing format across Android JVM and Cloud/SQLite; negative controls for substitutions and scope drift | Hardware-enforced Ed25519 biometric key custody, fully integrated AegisAI Class A authorization |
-| **Public SDK** | Evaluation-stage integration examples and documented interfaces | Mock `ALLOW` or legacy `/v1/intent` as an executable grant |
-
-**Key distinction:** a green workflow verifies only its assertions. The private CI record is **owner-reported** to a reader who cannot inspect it. Public reviewers can verify the [Android JVM run](https://github.com/IkaRiche/kilu-pocket-agent/actions/runs/42079529380), the [Android repository](https://github.com/IkaRiche/kilu-pocket-agent) and the [KiLu SDK](https://github.com/IkaRiche/kilu-sdk). Those public resources do not expose the complete closed-source authority engine.
-
-## Start here — choose your review path
-
-| You are… | Start with… | Decisive question |
-|:--|:--|:--|
-| **Infrastructure / platform architect** | [Architecture](docs/02_ARCHITECTURE_BOUNDARIES.md) · [Integration brief](docs/08_INTEGRATION_QUALIFICATION.md) | Where, exactly, is the last pre-effect authorization boundary? |
-| **Security / governance reviewer** | [Threat model](docs/11_THREAT_MODEL.md) · [AegisAI](docs/03_AEGISAI_GOVERNANCE.md) | Can any actor cause a side effect without a valid bounded grant? |
-| **Scientific / evidence reviewer** | [Claims register](evidence/CLAIMS_REGISTER.csv) · [Evidence standards](docs/12_PUBLIC_REPRODUCIBILITY.md) | Which assertion has a public primary artifact and which is internal-only? |
-| **Technical buyer / counsel** | [Executive brief](docs/01_EXECUTIVE_OVERVIEW.md) · [Commercial diligence](docs/10_COMMERCIAL_DILIGENCE.md) | Which IP and evidence rights are actually transferable? |
-| **Developer** | [Public SDK](https://github.com/IkaRiche/kilu-sdk) · [FAQ](docs/13_FAQ.md) | How do I avoid mistaking a demo or a policy decision for execution authority? |
-
-Full documentation: [index](docs/INDEX.md). The machine-readable [claim register](evidence/CLAIMS_REGISTER.csv) includes positive, negative and unresolved statements.
-
-## What we deliberately do not claim
-
-- A single **independently verified live** AegisAI → real Android V2 → KiLu → Hub → offline receipt chain.
-- Hardware-backed non-exportable **Ed25519** keys bound cryptographically to every biometric operation in the reviewed Android client.
-- Full production qualification of the experimental CREG carrier, field safety, certification, independent penetration testing or universal exactly-once effects.
-- That sample SDK integrations or legacy intent responses are execution grants.
-- That KiLu, AegisAI, DeTAK and StasysOS are already a single proven deployed product.
-
-The scope of public and withheld information is explicit in the [disclosure boundary](docs/07_DISCLOSURE_BOUNDARY.md). If a reviewer requires confidential primary evidence to verify a claim and cannot inspect it, the correct external conclusion is **EVIDENCE_INSUFFICIENT**, not PASS.
-
-## Public review and contributions
-
-Documentation errors, broken public links, claim mismatches and proposed **non-sensitive** review questions are welcome through GitHub issues. **Do not upload** private repositories, credentials, raw proof objects, unpublished inventions, production identifiers or customer records. This is not an invitation to test operational systems. See [CONTRIBUTING](CONTRIBUTING.md) and [SECURITY](SECURITY.md).
-
-To verify only the **documentation integrity** locally:
-
-```bash
-python3 tools/validate_public_package.py
-```
-
-This validates controlled file inventory, evidence references and local links, not the underlying science, code security, patent position or private experiments.
-
-## Ownership, disclosure and transaction perimeter
-
-All rights reserved. The components have separate source, evidence and potential IP perimeters; definitive chain of title must be established from original legal records. Public access grants no technology license, patent rights or rights to confidential material. No buyer commitment, valuation or transfer terms are implied.
-
-[Rights](LEGAL.md) · [Disclosure policy](docs/07_DISCLOSURE_BOUNDARY.md) · [Security](SECURITY.md)
-
-<sub>Evidence cutoff: **5 November 2026** · Editorial status: public technical evidence index · Visuals are conceptual, not implementation schematics.</sub>
+<sub>Evidence cutoff: 5 November 2026 · Public material for preliminary technical evaluation · All rights reserved. Documentation CI checks only this public dossier.</sub>
