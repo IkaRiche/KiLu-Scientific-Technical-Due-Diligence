@@ -1,0 +1,9 @@
+source_id,access,kind,public_url,review_cutoff,limitations
+PUB-ANDROID-SRC,PUBLIC,source,https://github.com/IkaRiche/kilu-pocket-agent,2026-11-05,Public source and historic milestone documentation not full-stack independent audit
+PUB-ANDROID-V2-CI,PUBLIC,workflow,https://github.com/IkaRiche/kilu-pocket-agent/actions/runs/42079529380,2026-11-05,JVM checks only
+PUB-SDK-SRC,PUBLIC,source,https://github.com/IkaRiche/kilu-sdk,2026-11-05,Evaluation-stage SDK and mock demos
+INT-AEGIS-CLASSA,INTERNAL_ONLY,source_and_tests,,2026-11-05,No public Class A proof object supplied
+INT-KILU-E2E,INTERNAL_ONLY,experimental_ci,,2026-11-05,Private synthetic Cloud/Linux Hub/Go receipt tests
+INT-KILU-ONE-SHOT,INTERNAL_ONLY,experimental_ci,,2026-11-05,Single prior benign authorized CI effect not approved for rerun
+INT-KILU-V2,INTERNAL_ONLY,experimental_ci,,2026-11-05,Private Cloud SQLite action and scope controls; no deployed V2 ceremony
+INT-ANDROID-HISTORY,INTERNAL_ONLY,historical_milestone,,2026-11-05,Historical device approvals not an exact-action V2 test

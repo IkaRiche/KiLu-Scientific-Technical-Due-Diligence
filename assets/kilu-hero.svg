@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 430" width="1200" height="430" role="img" aria-labelledby="t d">
+<title id="t">KiLu — authority for autonomous execution</title>
+<desc id="d">Abstract secure authority boundary, chain of trust and evidence-first research</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071421"/><stop offset=".55" stop-color="#10263a"/><stop offset="1" stop-color="#0a1730"/></linearGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#1bc9ab"/><stop offset=".6" stop-color="#89e9d1"/><stop offset="1" stop-color="#b8c6ff"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#1bc9ab" stop-opacity=".19"/><stop offset="1" stop-color="#1bc9ab" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#c1deef" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="430" fill="url(#bg)"/><rect width="1200" height="430" fill="url(#grid)"/>
+<circle cx="895" cy="213" r="245" fill="url(#glow)"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="74" y="87" fill="#85d9cf" font-size="15" font-weight="700" letter-spacing="4">EXECUTION AUTHORITY / EVIDENCE SYSTEM</text>
+<text x="69" y="215" fill="#f4faff" font-size="116" font-weight="800" letter-spacing="-7">KiLu</text>
+<rect x="74" y="245" width="128" height="5" rx="2" fill="#1bc9ab"/>
+<text x="74" y="291" fill="#c0d4e3" font-size="27">An agent proposes.</text>
+<text x="74" y="331" fill="#f3f9ff" font-size="27" font-weight="700">Authority decides what may run.</text>
+<text x="75" y="386" fill="#83a3b5" font-size="15" letter-spacing="1.7">PUBLIC TECHNICAL EVIDENCE · 2026</text>
+</g>
+<g transform="translate(730 45)" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="196" cy="174" r="147" fill="none" stroke="#497185" stroke-width="1.5" stroke-dasharray="3 10"/>
+  <circle cx="196" cy="174" r="117" fill="#082536" fill-opacity=".66" stroke="#41bda9" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M196 68 284 117v102l-88 50-88-50V117Z" fill="#0d3343" stroke="#6ee3d0" stroke-width="2.4"/>
+  <path d="M196 100 259 136v73l-63 37-63-37v-73Z" fill="#143e4c" stroke="#8cf2df" stroke-width="2"/>
+  <path d="m162 177 24 23 47-53" fill="none" stroke="url(#line)" stroke-width="10"/>
+  <g stroke="#75d4c7" stroke-width="2.5" fill="#112e3b">
+    <circle cx="196" cy="27" r="8"/><circle cx="343" cy="174" r="8"/><circle cx="196" cy="321" r="8"/><circle cx="49" cy="174" r="8"/>
+  </g>
+  <g stroke="#395c76" stroke-width="2"><path d="M196 36V58M334 174h-19M196 289v24M58 174h21"/></g>
+  <text x="196" y="362" fill="#8bd6cb" font-family="Arial,Helvetica,sans-serif" font-size="13" text-anchor="middle" letter-spacing="3">BOUNDED · VERIFIED · AUDITABLE</text>
+</g>
+</svg>

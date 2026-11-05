@@ -1,0 +1,21 @@
+claim_id,component,claim,status,scope,source_id,qualification
+KILU-01,KiLu,"Planning authority and execution are specified as separate roles",SPECIFIED,architectural contract,INT-KILU-E2E,not proof of whole-system enforcement
+KILU-02,KiLu,Issuer-signed tokens and consumed-JTI controls tested internally,PASS_SCOPED_INTERNAL,synthetic Cloud SQLite,INT-KILU-E2E,not deployed-production authority guarantee
+KILU-03,KiLu,Compiled Linux Hub executed one predefined approved benign CI action,PASS_SCOPED_INTERNAL,single local CI fixture,INT-KILU-ONE-SHOT,not globally exactly-once and not authorised for rerun
+KILU-04,KiLu,Independent Go verifier accepted a signed scoped receipt,PASS_SCOPED_INTERNAL,synthetic Cloud and Go fixture,INT-KILU-E2E,does not prove all physical consequences
+KILU-05,KiLu,V2 Cloud checked action and signed-scope mutations in synthetic SQL tests,PASS_SCOPED_INTERNAL,Cloud SQLite fixture,INT-KILU-V2,limited controlled cases
+KILU-06,KiLu,Experimental CREG-003 V2 has been deployed to production,NOT_ESTABLISHED,production environment,INT-KILU-V2,no production migration or deployment established
+KILU-07,KiLu,Authority is universally bypass-free and formally verified,NOT_ESTABLISHED,arbitrary operating environments,INT-KILU-E2E,scoped tests do not imply universal guarantees
+APP-01,Android Approver,Earlier on-device approval and execution were reported in R1 and E2,REPORTED_PREVIOUS_VALIDATION,historical device path,INT-ANDROID-HISTORY,not new V2 ceremony
+APP-02,Android Approver,Public experimental Kotlin exact-action V2 JVM CI succeeded,PUBLIC_CI_PASS,Android JVM tests,PUB-ANDROID-V2-CI,no physical biometric V2 proof
+APP-03,Android Approver,Current client proves hardware-nonexportable biometric-per-signature Ed25519,NOT_ESTABLISHED,reviewed Android key manager,PUB-ANDROID-SRC,software keys and separate prompt
+APP-04,Android Approver,A person physically reviewed and signed the exact V2 action on device,NOT_ESTABLISHED,physical Android V2,PUB-ANDROID-V2-CI,not proven by JVM or Cloud tests
+AEGIS-01,AegisAI,Configured Class A DecisionTrace Ed25519 attestation exists in internal tested scope,PASS_SCOPED_INTERNAL,reported AegisAI signing lane,INT-AEGIS-CLASSA,no original public attestation in package
+AEGIS-02,AegisAI,Admissibility is defined separately from executor authority,SPECIFIED,accepted architectural responsibility,INT-AEGIS-CLASSA,not proof of live KiLu integration
+CHAIN-01,Full chain,AegisAI Class A policy input and KiLu V2 share independently verified common action commitment,NOT_ESTABLISHED,cross-component integration,INT-AEGIS-CLASSA,common semantic and signed action join absent
+CHAIN-02,Full chain,A live AegisAI to Android V2 to KiLu to offline verifier chain is independently verified,NOT_ESTABLISHED,production end-to-end,INT-KILU-V2,separate green tests cannot establish this
+SDK-01,KiLu SDK,Published SDK and mock integration examples are accessible,PUBLIC_SOURCE_OBSERVED,public SDK repository,PUB-SDK-SRC,examples are evaluation-stage only
+SDK-02,KiLu SDK,Legacy intent ALLOW alone authorizes actual side effects,NOT_ESTABLISHED,legacy intent route,PUB-SDK-SRC,explicitly not an executor-bound grant
+STA-01,StasysOS,Separately evaluated bounded runtime is a possible complementary asset,SPECIFIED,asset perimeter hypothesis,INT-KILU-E2E,not qualified as integrated full stack
+BUS-01,Commercial,Product and transaction perimeter remain open,OPEN_DECISION,rights and buyer evaluation,INT-KILU-E2E,no sale or licence committed
+BUS-02,Commercial,An external acquirer has production-accepted the combined system,NOT_ESTABLISHED,commercial customer acceptance,INT-KILU-E2E,no independent proof in this package
