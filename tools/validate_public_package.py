@@ -9,6 +9,7 @@ REQUIRED = {
   '.gitignore', '.github/workflows/validate.yml',
   'tools/validate_public_package.py',
   'assets/kilu-hero.svg','assets/authority-flow.svg',
+  'assets/kilu-logo.svg','assets/kilu-symbol.svg',
   'evidence/CLAIMS_REGISTER.csv', 'evidence/SOURCES.csv', 'evidence/INDEX.md',
   'docs/INDEX.md',
   *{f'docs/{i:02d}_{suffix}.md' for i, suffix in enumerate([
