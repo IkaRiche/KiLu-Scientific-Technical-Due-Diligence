@@ -17,7 +17,7 @@ REQUIRED = {
     'AEGISAI_GOVERNANCE','EXECUTION_EVIDENCE','APPROVAL_EVIDENCE',
     'REVIEW_PROTOCOL','DISCLOSURE_BOUNDARY','INTEGRATION_QUALIFICATION',
     'LIMITATIONS_AND_RISKS','COMMERCIAL_DILIGENCE','THREAT_MODEL',
-    'PUBLIC_REPRODUCIBILITY','FAQ'
+    'PUBLIC_REPRODUCIBILITY','FAQ','DETERMINISTIC_GATE_EVIDENCE'
   ])},
 }
 actual = {
@@ -30,7 +30,7 @@ def load(name):
     return list(csv.DictReader(handle))
 sources = load('evidence/SOURCES.csv')
 claims = load('evidence/CLAIMS_REGISTER.csv')
-assert len(claims) >= 20 and len(sources) >= 8
+assert len(claims) >= 26 and len(sources) >= 10
 source_ids = [s['source_id'] for s in sources]
 claim_ids = [c['claim_id'] for c in claims]
 assert len(source_ids) == len(set(source_ids)), 'duplicate source ID'
@@ -43,6 +43,9 @@ statuses = {
 for c in claims:
   assert all(c.get(k) for k in ('claim_id','component','claim','status','scope','source_id','qualification'))
   assert c['status'] in statuses and c['source_id'] in source_ids, c['claim_id']
+positive = {'KILU-08':'SPECIFIED','AEGIS-03':'PASS_SCOPED_INTERNAL','AEGIS-04':'PASS_SCOPED_INTERNAL','DET-01':'PASS_SCOPED_INTERNAL','APP-05':'PUBLIC_SOURCE_OBSERVED','APP-06':'SPECIFIED'}
+for k, status in positive.items():
+  assert any(c['claim_id']==k and c['status']==status for c in claims),f'no verified scope for {k}'
 negative = {'APP-03','APP-04','KILU-06','KILU-07','CHAIN-01','CHAIN-02','SDK-02'}
 by_id = {c['claim_id']:c for c in claims}
 assert negative.issubset(by_id)

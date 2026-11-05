@@ -1,5 +1,14 @@
 # Limits, negative results and current claim ceiling
 
+**MEASURED OR ESTABLISHED IN THE STATED SCOPE**
+
+- Deterministic authority evaluation uses explicit policy and cryptographic verification rather than an LLM interpreting prompts.
+- Internal frozen AegisAI fixture benchmark: 10,000 decisions, 0.22 ms mean / 0.35 ms p95; 1,748 prompt-injection fixtures without a security failure under that benchmark definition.
+- Distinct embedded DeTAK H7 bench: Ed25519 verification ~7.85 ms, valid-grant gate ~7.933 ms. These are not contradicted by a faster host policy benchmark; they are different mechanisms.
+- Approver signing key is kept in the Android client rather than distributed to the agent. Physical separation is part of the intended deployment model. This does not itself establish hardware-nonexportability.
+
+[Exact scope and distinctions](14_DETERMINISTIC_GATE_EVIDENCE.md).
+
 **NOT ESTABLISHED**
 - One independently verified, deployed AegisAI Class A → on-device Android V2 → KiLu token → bounded executor → offline receipt proof chain.
 - Hardware-nonexportable Ed25519 keys with per-signature biometric cryptographic enforcement in the reviewed public Android implementation.

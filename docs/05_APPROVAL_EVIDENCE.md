@@ -6,6 +6,8 @@ The proposed exact-action V2 adds a length-framed signature over plan identity, 
 
 **Different claim:** these JVM tests do not prove the V2 approval view was reviewed and biometrically signed on a physical handset.
 
+**Key separation matters:** in the intended two-device trust arrangement, the agent running on the Hub has no access to the human Approver's locally stored private key. This is the explicit security design and the reason the Approver is a separate authority, rather than another prompt or LLM role.
+
 An additional important limit is visible in the reviewed Android code: software BouncyCastle Ed25519 signing with private-key bytes protected by EncryptedSharedPreferences, and a separate BiometricPrompt which also permits device credentials. That is not cryptographic evidence of a hardware-nonexportable Ed25519 private key requiring fresh biometric authorisation per signature. This does **not** contradict the older observed device-flow milestones.
 
 Neither rebuilding the Android product nor extending V2 hardware testing is a prerequisite for publishing this scoped evidence index. It may become a prerequisite for a *specific stronger buyer claim*.

@@ -10,6 +10,14 @@ KiLu separates planning, policy admissibility, human escalation, execution autho
 
 This is a **scoped implementation and evaluation thesis**, not a universal theorem that one architecture is superior or a warranty that all tool paths are protected.
 
+## Evidence-backed performance and trust separation
+
+The authority gate is designed to evaluate typed grants and policy, not to follow natural-language instructions. In an earlier frozen AegisAI no-LLM fixture run, 10,000 decisions were measured at 0.22 ms mean and 0.35 ms p95. Separate embedded DeTAK STM32H7 tests reported ~7.933 ms for a valid-grant gate with Ed25519 verification. These are measured *different boundaries*, not a claim of full transaction latency.
+
+The human Approver's signing key is intended to remain on a separate Android device inaccessible to a remote agent. This is a genuine split-trust property; it must not be conflated with unproven StrongBox-based Ed25519 key custody.
+
+[Performance and trust qualifications](14_DETERMINISTIC_GATE_EVIDENCE.md).
+
 ## Components and ownership boundaries
 
 | Component | Engineering role | Evidence ceiling |

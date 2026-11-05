@@ -14,5 +14,6 @@
 - [11 · Public threat model](11_THREAT_MODEL.md)
 - [12 · Reproducibility](12_PUBLIC_REPRODUCIBILITY.md)
 - [13 · FAQ](13_FAQ.md)
+- [14 · Deterministic gate, measured latency and split-trust keys](14_DETERMINISTIC_GATE_EVIDENCE.md)
 - [Evidence index](../evidence/INDEX.md) · [Claim register](../evidence/CLAIMS_REGISTER.csv) · [Sources](../evidence/SOURCES.csv)
 - [Rights](../LEGAL.md) · [Security](../SECURITY.md) · [Contributing](../CONTRIBUTING.md)

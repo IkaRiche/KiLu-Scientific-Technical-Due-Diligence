@@ -7,3 +7,5 @@ INT-KILU-E2E,INTERNAL_ONLY,experimental_ci,,2026-11-05,Private synthetic Cloud/L
 INT-KILU-ONE-SHOT,INTERNAL_ONLY,experimental_ci,,2026-11-05,Single prior benign authorized CI effect not approved for rerun
 INT-KILU-V2,INTERNAL_ONLY,experimental_ci,,2026-11-05,Private Cloud SQLite action and scope controls; no deployed V2 ceremony
 INT-ANDROID-HISTORY,INTERNAL_ONLY,historical_milestone,,2026-11-05,Historical device approvals not an exact-action V2 test
+INT-AEGIS-BENCH,INTERNAL_ONLY,fixture_benchmark,,2026-11-05,Frozen 10000-case deterministic benchmark owner-reported data with private source and test evidence
+INT-DETAK-H7,INTERNAL_ONLY,hardware_bench,,2026-11-05,STM32H7 D2 D3 private RTT hardware evidence owner-reported measurements

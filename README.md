@@ -63,6 +63,16 @@ flowchart LR
 
 See [evidence inventory](evidence/INDEX.md), [execution tests](docs/04_EXECUTION_EVIDENCE.md) and [negative claims](docs/09_LIMITATIONS_AND_RISKS.md).
 
+## A deterministic gate, not another prompt
+
+**The authority check does not ask an LLM whether to allow an action.** A planner can be manipulated into proposing something unsafe, but prompt injection cannot directly instruct a deterministic policy/cryptographic gate to ignore its rules. The operational requirement is that every relevant effect actually crosses the independent gate.
+
+Measured evidence exists in distinct lanes: a historical AegisAI fixture benchmark reported **10,000 decisions, 0.22 ms mean / 0.35 ms p95**, including **1,748 prompt-injection fixtures** with no security failures under that test's definition. A separate STM32H7 embedded DeTAK benchmark measured **~7.85 ms** for Ed25519 grant verification and **~7.933 ms** for a valid-grant gate. These are **not** the same operation, and neither is an end-to-end financial settlement metric.
+
+In the intended split-trust deployment, the human Approver's signing key remains **on a separate Android device, outside the agent's environment**. The reviewed Android implementation stores a software Ed25519 key locally in encrypted preferences; agent isolation is distinct from a stronger claim of hardware-nonexportability or per-signature hardware-enforced biometric use.
+
+[Detailed evidence and boundaries](docs/14_DETERMINISTIC_GATE_EVIDENCE.md).
+
 ## Evidence at a glance
 
 | Evidence lane | What the evidence supports | What it does **not** support |

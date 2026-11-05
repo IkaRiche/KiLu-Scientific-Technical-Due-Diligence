@@ -6,6 +6,8 @@
 
 | Threat | Required defence at the tested boundary | Current public evidence ceiling |
 |---|---|---|
+| Prompt injection against an upstream LLM | Independent deterministic gate does not interpret instructions as authority; exact action and policy remain enforced | Architecture and internal scoped injection fixtures, not universal immunity |
+| Remote agent attempts to obtain human key | Private signing key remains on separate Approver device; no grant without required approval | Android key-storage path is public; device compromise and deployment isolation remain separate questions |
 | Planner-issued pseudo-authority | A plan alone cannot mint an executable grant | Architectural contract, implementation-specific tests |
 | Action substitution | Executed payload bound to approved digest | Scoped Cloud V2 and Android JVM tests |
 | Wrong runtime / toolchain | Exact runtime/toolchain binding enforced before effect | Scoped executor tests |

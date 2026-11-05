@@ -13,6 +13,9 @@
 | `INT-KILU-V2` | Action binding and mutation checks for experimental V2 | Restricted | Synthetic tests and regression correction; no production or device ceremony |
 | `INT-ANDROID-HISTORY` | Historical mobile approval/execution milestones | Restricted original / public summaries | Older protocol, not V2 |
 
+| `INT-AEGIS-BENCH` | Historic AegisAI 10,000-case no-LLM benchmark, mean 0.22 ms and p95 0.35 ms | Restricted | Internal scoped measurement; not a cloud end-to-end SLA |
+| `INT-DETAK-H7` | STM32H7 Ed25519 verify ~7.85 ms and gate ~7.933 ms | Restricted | Separate embedded hardware test path; not the same as host policy timing |
+
 An `INT-*` entry **does not** confer outside access, independent reproducibility or a cryptographic external proof object. A `PUB-*` entry allows inspection of only the public surface and the assertions actually checked there.
 
 [Claims register](CLAIMS_REGISTER.csv) · [Review protocol](../docs/06_REVIEW_PROTOCOL.md) · [Reproducibility](../docs/12_PUBLIC_REPRODUCIBILITY.md).
