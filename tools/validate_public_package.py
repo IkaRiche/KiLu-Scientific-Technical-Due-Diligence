@@ -57,11 +57,11 @@ for s in sources:
     )), s['source_id']
 # Deliberately heuristic: always perform human disclosure review before publication.
 patterns = [
-  ('private GitHub repository',r'https?://github\\.com/IkaRiche/(?:KiLu-Network|AegisAI)(?:[/#\\s]|$)'),
+  ('private GitHub repository',r'https?://github\.com/IkaRiche/(?:KiLu-Network|AegisAI)(?:[/#\s]|$)'),
   ('private key',r'-----BEGIN (?:[A-Z ]* )?PRIVATE KEY-----'),
-  ('access token',r'\\b(?:ghp_|gho_|github_pat_)\\S+'),
-  ('long SHA',r'\\b[a-f0-9]{40}\\b'),
-  ('prospective buyer',r'\\bNebius\\b'),
+  ('access token',r'\b(?:ghp_|gho_|github_pat_)\S+'),
+  ('long SHA',r'\b[a-f0-9]{40}\b'),
+  ('prospective buyer',r'\bNebius\b'),
 ]
 for rel in actual:
   if rel == 'tools/validate_public_package.py':
@@ -71,7 +71,7 @@ for rel in actual:
     assert not re.search(pattern,content,re.I), f'potential {label} in {rel}'
 for md in ROOT.rglob('*.md'):
   content=md.read_text(encoding='utf-8')
-  for target in re.findall(r'!?(?:\\[[^\\]]*\\])\\(([^)]+)\\)',content):
+  for target in re.findall(r'!?(?:\[[^\]]*\])\(([^)]+)\)',content):
     relpath=target.split('#',1)[0]
     if not relpath or relpath.startswith(('https://','http://','mailto:','#')):
       continue
