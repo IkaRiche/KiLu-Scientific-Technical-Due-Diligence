@@ -2,6 +2,8 @@
 
 ## Why this is an infrastructure asset
 
+A buyer can evaluate **two separable opportunities**: independent execution authority for cloud AI agents, and bounded local homeostatic supervision for embedded/Physical AI. Neither automatically implies that all modules are production-ready together. [Relevant results and caveats](15_HOMEOSTATIC_EDGE_EVIDENCE.md).
+
 KiLu addresses a growing technical gap between autonomous AI planning and accountable execution. A model can propose actions at scale; the authority to carry them out must remain with independently enforceable policy, designated humans and bounded cryptographic permissions.
 
 **Transferable value to evaluate:** a deterministic authority protocol, grant issuance and consumed-JTI handling, split-trust Android approval surface, bounded execution interfaces, independently verifiable receipts and an MCU-class DeTAK verification path. These are different product assets, each with an evidence owner.
@@ -13,7 +15,7 @@ KiLu addresses a growing technical gap between autonomous AI planning and accoun
 | AI cloud / infrastructure operator | Govern tool calls and workflow side effects without relying on LLM self-restraint | Lower custom policy/approval engineering; stronger authorization evidence |
 | Enterprise agent platform | Apply human authority to privileged actions without giving agents signing keys | Clear operator custody and scoped, inspectable consent |
 | Regulated fintech or payments integrator | Protect an AI-initiated transaction admission path before existing rails | Deterministic policy check and independent auditable permission |
-| Edge/robotics integrator | Verify signed action authority on constrained local hardware | Demonstrated MCU grant verification at measured latency |
+| Edge/robotics integrator | Evaluate local degradation response with independently checked authority | Separate Ashby/Fabric/BESM/DeTAK MCU evidence plus candidate host restrictive effect; full device qualification open |
 
 These are **integration and commercial hypotheses**, not claims of committed contracts, field deployments or validated monetary ROI.
 

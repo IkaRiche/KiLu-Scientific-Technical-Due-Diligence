@@ -9,3 +9,9 @@ INT-KILU-V2,INTERNAL_ONLY,experimental_ci,,2026-11-05,Private Cloud SQLite actio
 INT-ANDROID-HISTORY,INTERNAL_ONLY,historical_milestone,,2026-11-05,Historical device approvals not an exact-action V2 test
 INT-AEGIS-BENCH,INTERNAL_ONLY,fixture_benchmark,,2026-11-05,Frozen 10000-case deterministic benchmark owner-reported data with private source and test evidence
 INT-DETAK-H7,INTERNAL_ONLY,hardware_bench,,2026-11-05,STM32H7 D2 D3 private RTT hardware evidence owner-reported measurements
+INT-ASHBY-MCU,INTERNAL_ONLY,hardware_bench,,2026-11-06,Historic STM32F411 32-cell colony profile; independent from Fabric Profile I
+INT-FABRIC-H7,INTERNAL_ONLY,hardware_bench,,2026-11-06,Fabric Profile I H723 measured observer; no actuator authority
+INT-BESM-F411,INTERNAL_ONLY,hardware_bench,,2026-11-06,BESM F411 bounded modulation and 8 on-device cases
+INT-ASHBY-RECOVERY,INTERNAL_ONLY,simulation,,2026-11-06,Recovery with externally provided cooldown inputs
+INT-NEB-EDGE-HOST,INTERNAL_ONLY,host_ci,,2026-11-06,Native Rust host co-execution; not MCU combined firmware
+INT-NEB-EDGE-EFFECT,INTERNAL_ONLY,host_ci,,2026-11-06,Candidate restrictive host admission with matched Ashby ablation and negative cross-source test

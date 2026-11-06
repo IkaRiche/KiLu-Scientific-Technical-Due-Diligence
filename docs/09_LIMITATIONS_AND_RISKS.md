@@ -15,6 +15,18 @@ This document is the dedicated **scope register** for diligence. It keeps varian
 
 These are positive results, not hypotheses. They are reported here with their required boundaries to preserve scientific and commercial credibility.
 
+## Homeostatic and embedded qualifications
+
+- The historic Ashby reference colony, the later MicroColony and Fabric Profile I are distinct profiles. Do not apply the smallest Fabric memory/latency measurements to the full colony.
+- BESM is bounded, non-authoritative state modulation. It does not itself issue grants or prove operational cost savings.
+- Historical recovery had externally supplied recovery inputs; autonomous restoration under arbitrary failure patterns is not established.
+- In the live F5 MCU study, Fabric/BESM were observers and the integrated DeTAK decision was simulated. DeTAK cryptographic hardware verification was tested separately.
+- The newer candidate restrictive-only interaction was exercised in **host-only** code, not physical actuation or production firmware. The historical F4 path has no such automatic effect binding.
+- Shared MicroColony state restricted a healthy second source after disturbance on the first; multi-tenant isolation is not established.
+- Full combined MCU WCET/Flash/RAM/power, long-running operation and cost/continuity advantage over a strong stateful alternative remain open.
+
+[Homeostatic evidence](15_HOMEOSTATIC_EDGE_EVIDENCE.md).
+
 ## Separate qualification questions for stronger claims
 
 - **Joined production trace:** independent verification of one newly deployed AegisAI Class A → physical Android V2 → Cloud grant → executor → receipt chain is not part of the existing combined evidence. Individual historical layers remain validated in their own scopes.

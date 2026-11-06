@@ -22,3 +22,5 @@
 - [13 · Frequently asked questions](13_FAQ.md)
 - [Evidence inventory](../evidence/INDEX.md) · [Claims register](../evidence/CLAIMS_REGISTER.csv) · [Source register](../evidence/SOURCES.csv)
 - [Rights](../LEGAL.md) · [Security](../SECURITY.md) · [Contributing](../CONTRIBUTING.md)
+
+**Homeostatic and embedded research:** [15 · Ashby/Fabric/BESM evidence and limitations](15_HOMEOSTATIC_EDGE_EVIDENCE.md)

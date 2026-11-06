@@ -25,3 +25,16 @@
 The [claims register](CLAIMS_REGISTER.csv) pairs each claim with one source and a bounded interpretation. Confidential raw evidence and source are not published because the technology is proprietary. Their absence from GitHub does not negate the results; external reviewers must nevertheless label them as owner-reported rather than independently examined.
 
 [Review method](../docs/06_REVIEW_PROTOCOL.md) · [Benchmarks](../docs/14_DETERMINISTIC_GATE_EVIDENCE.md) · [Public reproducibility](../docs/12_PUBLIC_REPRODUCIBILITY.md).
+
+## Homeostatic and embedded evidence (6 November 2026)
+
+| ID | Evidence summary | Disclosure |
+|:--|:--|:--|
+| `INT-ASHBY-MCU` | Historical 32-cell STM32F411 colony, p95 25.1 µs step; separate firmware footprint | Private source and original bench |
+| `INT-FABRIC-H7` | Embedded Profile I, 616-byte state; 30/30 STM32H723 checks, worst measured selected update 6.96 µs | Private hardware record |
+| `INT-BESM-F411` | Bounded non-authoritative BESM 8/8 STM32F411 vectors; 1.94 µs worst observed update | Private hardware record |
+| `INT-ASHBY-RECOVERY` | Simulation recovered 10/10 benign forwarding after externally supplied cooldown | Private experiment; conditional recovery |
+| `INT-NEB-EDGE-HOST` | 5/5 host co-execution checks and 24/24 SRC regressions | Private, original compiled Rust sources |
+| `INT-NEB-EDGE-EFFECT` | 5/5 focused candidate tests, 10/10 total, 24/24 SRC; restriction with Ashby, no restriction after ablation; cross-source failure | Private host-only experiment; not production firmware |
+
+[Public summary](../docs/15_HOMEOSTATIC_EDGE_EVIDENCE.md).

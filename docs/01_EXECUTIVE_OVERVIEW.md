@@ -1,6 +1,8 @@
-# Executive overview — execution authority for an agentic world
+# Executive overview — independent authority and bounded autonomy
 
 ## The infrastructure gap
+
+An AI system faces two different questions: **is an action authorized?** and **what if conditions have deteriorated since it was planned?** The authority and homeostatic mechanisms below have distinct owners and evidence. Their combination is a target of integration research, not one fully qualified deployed product.
 
 AI agents already generate commands, operate tools and initiate transactions. The hard problem is not whether a model can suggest the next action. It is whether **an independent authority** can determine that a particular action, on a particular runtime and within a particular window, is permitted **before** a side effect occurs.
 
@@ -19,6 +21,10 @@ The capability is composed of complementary responsibilities:
 5. **Evidence of authorization:** execution reports and signed receipts are checked by an independent Go Offline Verifier in the tested scope.
 
 These are separable technologies with distinct qualification records, not necessarily one deployed composite product.
+
+## New homeostatic and edge evidence
+
+Ashby Cells, Fabric and BESM have separate MCU measurements, while a later Rust host-only experiment verifies a candidate restrictive effect on an otherwise valid signed action. Its matched ablation shows a causal contribution of the Ashby layer, but the test does **not** prove real actuator enforcement, full-stack timing or independent tenant isolation. [See the evidence and limitations](15_HOMEOSTATIC_EDGE_EVIDENCE.md).
 
 ## Quantified technical assets
 

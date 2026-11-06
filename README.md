@@ -2,15 +2,15 @@
   <img src="assets/kilu-hero.svg" width="100%" alt="KiLu — independent execution authority for AI-driven systems" />
 </p>
 
-<h1 align="center">KiLu · Execution Authority for AI Agents</h1>
-<p align="center"><strong>AI proposes. KiLu authorizes. The executor verifies.</strong></p>
-<p align="center">Deterministic, cryptographically bounded control of AI-initiated actions — independent of what the model says or intends.</p>
+<h1 align="center">KiLu · Controlled Autonomy for AI and Edge Systems</h1>
+<p align="center"><strong>Independent authority. Bounded homeostasis. Verifiable execution.</strong></p>
+<p align="center">Distinct, evidence-backed capabilities for controlling AI actions and responding to operational degradation — from cloud agents to constrained devices.</p>
 
 <p align="center">
   <a href="README_RU.md">Русский</a> ·
   <a href="docs/01_EXECUTIVE_OVERVIEW.md">Technology value</a> ·
   <a href="docs/04_EXECUTION_EVIDENCE.md">Execution proof</a> ·
-  <a href="docs/14_DETERMINISTIC_GATE_EVIDENCE.md">Benchmarks</a> ·
+  <a href="docs/14_DETERMINISTIC_GATE_EVIDENCE.md">Benchmarks</a> · <a href="docs/15_HOMEOSTATIC_EDGE_EVIDENCE.md">Homeostasis &amp; edge</a> ·
   <a href="docs/08_INTEGRATION_QUALIFICATION.md">Integration</a> ·
   <a href="evidence/CLAIMS_REGISTER.csv">Evidence register</a>
 </p>
@@ -21,6 +21,12 @@
 </p>
 
 ---
+
+## When AI acts, permission is only half the problem
+
+An AI system may have authorization to act while facing failing communications, accumulated errors or exhausted resources. **Independent permission checking** answers whether an action is allowed. **Homeostatic regulation** responds to degradation without granting itself execution rights.
+
+This dossier now covers three **distinct, separately evidenced** capabilities: KiLu/DeTAK/AegisAI for authority, Ashby Cells/Fabric and BESM for bounded homeostatic regulation, and SRC/DRC for independent execution constraints and recovery. The components are not yet one fully qualified production stack. [Research and MCU evidence](docs/15_HOMEOSTATIC_EDGE_EVIDENCE.md).
 
 ## Give AI agents capabilities — not unchecked authority
 
@@ -39,12 +45,16 @@ This is **infrastructure-level separation of intent from authority**, not anothe
 | **Deterministic governance** | **10,000** AegisAI fixture decisions; **0.22 ms mean / 0.35 ms p95** | Internal, pinned no-LLM benchmark |
 | **Adversarial governance cases** | **1,748** prompt-injection fixtures; **0** security failures by the recorded metric | Same internal benchmark |
 | **Embedded cryptographic gate** | Ed25519 verification **~7.85 ms**; complete valid-grant gate **~7.933 ms** on STM32H7 | Internal physical MCU benchmark; separate timing boundary |
+| **Ashby reference colony** | 32 cells on STM32F411; **25.1 µs p95** colony step | Historic MCU firmware, not the entire stack |
+| **Fabric Profile I** | STM32H723: **616-byte state**, up to **6.96 µs** observed update, 30/30 bench checks | Lightweight observer, not the full colony |
+| **BESM** | STM32F411: **8/8** physical cases, **1.94 µs** worst observed update | Bounded state modulation, no authorization rights |
+| **Combined host study** | **5/5** new cases within **10/10** combined tests; **24/24** SRC regressions | Candidate test-only restrictive effect, not physical actuation |
 | **Anti-replay and runtime binding** | Signed grants, JTI consumption and wrong-action/runtime denial exercised | Scoped Cloud/SQLite + compiled Linux Hub CI |
 | **Controlled execution & evidence** | **One authorized effect**, exact output, signed report, receipt and independent Go verification | CREG-002 one-shot, scoped internal CI |
 | **Real Android approval history** | Earlier R1/E2 device approval and execution, followed by workflow grant/revocation milestones | Historical live validation records |
 | **Exact-action V2** | Android JVM and Cloud/SQLite signature-binding and mutation tests passed | Public Kotlin CI; private Cloud CI |
 
-These are **different tests of specific mechanisms**, not one combined latency SLA or a claim that an experimental V2 has already been deployed. Method, source access and precise boundaries: [Evidence register](evidence/CLAIMS_REGISTER.csv) · [Benchmark detail](docs/14_DETERMINISTIC_GATE_EVIDENCE.md).
+These are **distinct experiments**, not a combined latency SLA or deployed-stack claim. A shared-colony cross-source false-suppression limitation was also observed; independent multi-tenant isolation remains unqualified. Method, source access and precise boundaries: [Evidence register](evidence/CLAIMS_REGISTER.csv) · [Benchmark detail](docs/14_DETERMINISTIC_GATE_EVIDENCE.md).
 
 ## Why the architecture matters
 
@@ -63,7 +73,7 @@ These are **different tests of specific mechanisms**, not one combined latency S
 - **AI infrastructure and agent platforms:** independently authorize tool calls, API mutations and hosted execution workflows.
 - **Enterprise operations:** control code execution, privileged automation and approval-sensitive actions with evidence of authorization.
 - **Financial and agentic transactions:** a deterministic authorization boundary between AI-initiated payment intent and the regulated financial rail. **Prospective integration use case**, not a claim of banking deployment or certification.
-- **Embedded and autonomous systems:** DeTAK demonstrates grant verification on resource-constrained STM32H7 hardware; no remote LLM is necessary for its authorization decision.
+- **Embedded and autonomous systems:** separately measured Ashby/Fabric/BESM and DeTAK profiles motivate a locally regulated, independently authorized embedded boundary; full hardware integration still needs qualification.
 
 [Technology overview](docs/01_EXECUTIVE_OVERVIEW.md) · [Buyer integration path](docs/08_INTEGRATION_QUALIFICATION.md) · [Technical ownership/transaction review](docs/10_COMMERCIAL_DILIGENCE.md).
 
@@ -105,4 +115,4 @@ This is an **intentional public technical overview**: proprietary implementation
 
 [Start a review](docs/00_START_HERE.md) · [Technical verification](docs/06_REVIEW_PROTOCOL.md) · [All documents](docs/INDEX.md)
 
-<sub>Evidence cutoff: 5 November 2026 · Public material for preliminary technical evaluation · All rights reserved. Documentation CI checks only this public dossier.</sub>
+<sub>Evidence cutoff: 6 November 2026 · Public material for preliminary technical evaluation · All rights reserved. Documentation CI checks only this public dossier.</sub>
