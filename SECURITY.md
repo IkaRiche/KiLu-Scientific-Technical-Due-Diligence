@@ -1,9 +1,9 @@
-# Responsible security and disclosure
+# Security and confidentiality contact
 
-This repository is **documentation-only**. It is neither an operational authority endpoint nor an invitation to test production infrastructure or attack a live installation.
+This is a documentation-only public introduction. It contains no operational service endpoint and does **not** authorize penetration tests against any product, infrastructure or customer deployment.
 
-Report an accidental publication of credentials, private code, unpublished invention details, internal evidence, customer records or personal data **privately** through the official project contact at [kilu.network](https://kilu.network). Do not publish vulnerabilities or secrets as public issues or pull requests.
+If you discover a potential disclosure of source code, confidential material, a credential, an undisclosed vulnerability or personal data, **do not publish it in an issue or pull request**. Contact the project privately via [kilu.network](https://kilu.network/) and identify the concern without reposting sensitive details.
 
-Public discussions may cover documentation accuracy and high-level threat hypotheses without executable exploit content or live-target details. No confidential sources, raw logs or primary proof objects may be uploaded.
+This repository contains no public bug-bounty program or promise of source access.
 
-[Disclosure boundary](docs/07_DISCLOSURE_BOUNDARY.md).
+[Disclosure policy](docs/ACCESS_POLICY.md)
