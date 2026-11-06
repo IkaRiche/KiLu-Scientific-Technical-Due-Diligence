@@ -11,7 +11,7 @@ REQUIRED = {
   'assets/kilu-hero.svg','assets/authority-flow.svg',
   'assets/kilu-logo.svg','assets/kilu-symbol.svg',
   'evidence/CLAIMS_REGISTER.csv', 'evidence/SOURCES.csv', 'evidence/INDEX.md',
-  'docs/INDEX.md',
+  'docs/INDEX.md', 'docs/15_HOMEOSTATIC_EDGE_EVIDENCE.md',
   *{f'docs/{i:02d}_{suffix}.md' for i, suffix in enumerate([
     'START_HERE','EXECUTIVE_OVERVIEW','ARCHITECTURE_BOUNDARIES',
     'AEGISAI_GOVERNANCE','EXECUTION_EVIDENCE','APPROVAL_EVIDENCE',
